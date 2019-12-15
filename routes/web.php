@@ -15,4 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('blog', 'BlogController');
+Route::group(['middleware' => ['web']], function () {
+
+   	Route::resource('blog', 'BlogController');
+
+});
+
